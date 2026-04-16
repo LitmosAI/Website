@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom'
 
 const members = [
-  { name: 'Jane Doe', role: 'Co-founder & CEO' },
-  { name: 'John Smith', role: 'Co-founder & CTO' },
-  { name: 'Alex Park', role: 'Head of Product' },
+  { name: 'Niel Parekh', role: 'Co-founder', linkedin: 'https://www.linkedin.com/in/nielparekh/' },
+  { name: 'Devansh Shah', role: 'Co-founder', linkedin: 'https://www.linkedin.com/in/devansh-shah11/' },
+  { name: 'Devasy Patel', role: 'Co-founder', linkedin: 'https://www.linkedin.com/in/devasy-patel/' },
 ]
 
 export default function Team() {
@@ -56,16 +56,26 @@ export default function Team() {
         justifyContent: 'center',
       }}>
         {members.map(m => (
-          <div key={m.name} style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '0.75rem',
-            padding: '2rem 2.5rem',
-            border: '1px solid #e5e5e5',
-            borderRadius: '16px',
-            width: '200px',
-          }}>
+          <a
+            key={m.name}
+            href={m.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '0.75rem',
+              padding: '2rem 2.5rem',
+              border: '1px solid #e5e5e5',
+              borderRadius: '16px',
+              width: '200px',
+              textDecoration: 'none',
+              transition: 'border-color 0.15s',
+            }}
+            onMouseEnter={e => e.currentTarget.style.borderColor = '#111111'}
+            onMouseLeave={e => e.currentTarget.style.borderColor = '#e5e5e5'}
+          >
             <div style={{
               width: '64px',
               height: '64px',
@@ -87,7 +97,7 @@ export default function Team() {
                 marginTop: '0.25rem',
               }}>{m.role}</p>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </div>
