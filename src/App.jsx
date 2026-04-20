@@ -225,10 +225,10 @@ export default function App() {
           </p>
           <div style={{ display: 'flex', gap: 12, marginTop: 24, flexWrap: 'wrap' }}>
             <Btn acid>Join waitlist</Btn>
-            <Btn ghost>Read the thesis</Btn>
+            <Btn ghost onClick={() => navigate('/thesis')}>Read the thesis</Btn>
           </div>
           <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: '#6b6658', marginTop: 14 }}>
-            no credit card · early access · built by ex-red-team
+            no credit card · early access
           </div>
         </div>
         <SwarmScene />
@@ -299,7 +299,7 @@ export default function App() {
         <p style={{ fontFamily: 'var(--hand)', fontSize: 20, lineHeight: 1.45, maxWidth: 600 }}>
           As agents act in the real world, the test surface explodes. We're building the infra layer that makes that surface visible.
         </p>
-        <Btn ghost style={{ marginTop: 14 }}>Read our thesis →</Btn>
+        <Btn ghost style={{ marginTop: 14 }} onClick={() => navigate('/thesis')}>Read our thesis →</Btn>
       </SketchBox>
 
       {/* FOUNDERS + WAITLIST */}
