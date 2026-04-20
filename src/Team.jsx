@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom'
 
 const members = [
-  { name: 'Niel Parekh', role: 'Co-founder', linkedin: 'https://www.linkedin.com/in/nielparekh/' },
-  { name: 'Devansh Shah', role: 'Co-founder', linkedin: 'https://www.linkedin.com/in/devansh-shah11/' },
-  { name: 'Devasy Patel', role: 'Co-founder', linkedin: 'https://www.linkedin.com/in/devasy-patel/' },
+  { initials: 'NP', name: 'Niel Parekh',  role: 'Co-founder', linkedin: 'https://www.linkedin.com/in/nielparekh/' },
+  { initials: 'DS', name: 'Devansh Shah', role: 'Co-founder', linkedin: 'https://www.linkedin.com/in/devansh-shah11/' },
+  { initials: 'DP', name: 'Devasy Patel', role: 'Co-founder', linkedin: 'https://www.linkedin.com/in/devasy-patel/' },
 ]
 
 export default function Team() {
@@ -11,49 +11,51 @@ export default function Team() {
 
   return (
     <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      minHeight: '100vh',
-      background: '#ffffff',
-      gap: '3rem',
-      padding: '2rem',
+      maxWidth: 900, margin: '0 auto', padding: '0 24px 80px',
     }}>
-      <button
-        onClick={() => navigate('/')}
-        style={{
-          position: 'absolute',
-          top: '1.75rem',
-          left: '2rem',
-          fontFamily: "'Satoshi', -apple-system, sans-serif",
-          fontSize: '0.8rem',
-          fontWeight: 600,
-          color: '#888',
-          background: 'transparent',
-          border: 'none',
-          cursor: 'pointer',
-          letterSpacing: '0.01em',
-        }}
-      >
-        ← Back
-      </button>
+      {/* NAV */}
+      <nav style={{
+        display: 'flex', alignItems: 'center', gap: 14,
+        padding: '20px 0 24px',
+        borderBottom: '2px solid var(--line-strong)',
+        marginBottom: 48,
+      }}>
+        <button
+          onClick={() => navigate('/')}
+          style={{
+            fontFamily: 'var(--hand)', fontSize: 16, fontWeight: 700,
+            background: 'transparent', border: 'none', cursor: 'pointer',
+            color: '#6b6658',
+          }}
+        >
+          ← Back
+        </button>
+        <div style={{ fontFamily: 'var(--hand-title)', fontSize: 28, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 8 }}>
+          <span style={{
+            display: 'inline-block', width: 14, height: 14, borderRadius: '50%',
+            background: 'var(--acid)', border: '2px solid var(--ink)',
+          }} />
+          Litmus AI
+        </div>
+      </nav>
 
       <h1 style={{
-        fontFamily: "'Satoshi', -apple-system, sans-serif",
-        fontSize: 'clamp(1.8rem, 4vw, 3rem)',
-        fontWeight: 700,
-        letterSpacing: '-0.03em',
-        color: '#111111',
+        fontFamily: 'var(--hand-title)', fontSize: 'clamp(40px,7vw,80px)',
+        fontWeight: 700, lineHeight: .95, marginBottom: 12,
       }}>
-        Meet the team
+        Built by humans who've<br/>
+        <span style={{
+          backgroundImage: "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 10'><path d='M2,6 C20,2 40,9 60,5 S100,2 118,6' stroke='%23ff4d6d' stroke-width='2.5' fill='none' stroke-linecap='round'/></svg>\")",
+          backgroundRepeat: 'no-repeat', backgroundPosition: '0 100%', backgroundSize: '100% .35em',
+          paddingBottom: '.1em',
+        }}>
+          broken
+        </span> AI for a living.
       </h1>
 
       <div style={{
-        display: 'flex',
-        gap: '1.5rem',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
+        display: 'grid', gridTemplateColumns: 'repeat(3,1fr)',
+        gap: 20, marginTop: 40,
       }}>
         {members.map(m => (
           <a
@@ -62,39 +64,40 @@ export default function Team() {
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: '0.75rem',
-              padding: '2rem 2.5rem',
-              border: '1px solid #e5e5e5',
-              borderRadius: '16px',
-              width: '200px',
+              border: '2px solid var(--line-strong)',
+              borderRadius: '16px 14px 18px 12px / 14px 18px 12px 16px',
+              background: 'var(--paper)',
+              boxShadow: '3px 3px 0 rgba(0,0,0,.08)',
+              padding: 20,
               textDecoration: 'none',
-              transition: 'border-color 0.15s',
+              display: 'flex', flexDirection: 'column', alignItems: 'center',
+              gap: 12,
+              transition: 'box-shadow .15s, transform .15s',
             }}
-            onMouseEnter={e => e.currentTarget.style.borderColor = '#111111'}
-            onMouseLeave={e => e.currentTarget.style.borderColor = '#e5e5e5'}
+            onMouseEnter={e => {
+              e.currentTarget.style.boxShadow = '5px 5px 0 rgba(0,0,0,.12)'
+              e.currentTarget.style.transform = 'translateY(-2px)'
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.boxShadow = '3px 3px 0 rgba(0,0,0,.08)'
+              e.currentTarget.style.transform = 'none'
+            }}
           >
             <div style={{
-              width: '64px',
-              height: '64px',
-              borderRadius: '50%',
-              background: '#f0f0f0',
-            }} />
+              width: 72, height: 72, borderRadius: '50%',
+              background: 'var(--paper-2)', border: '2px solid var(--ink)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontFamily: 'var(--hand-title)', fontWeight: 700, fontSize: 26,
+            }}>
+              {m.initials}
+            </div>
             <div style={{ textAlign: 'center' }}>
               <p style={{
-                fontFamily: "'Satoshi', -apple-system, sans-serif",
-                fontSize: '0.95rem',
-                fontWeight: 600,
-                color: '#111111',
-                letterSpacing: '-0.01em',
+                fontFamily: 'var(--hand)', fontSize: 18, fontWeight: 700,
+                color: 'var(--ink)',
               }}>{m.name}</p>
               <p style={{
-                fontFamily: "'Satoshi', -apple-system, sans-serif",
-                fontSize: '0.75rem',
-                color: '#888',
-                marginTop: '0.25rem',
+                fontFamily: 'var(--mono)', fontSize: 11, color: '#6b6658', marginTop: 4,
               }}>{m.role}</p>
             </div>
           </a>

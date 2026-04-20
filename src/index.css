@@ -8,11 +8,43 @@ html, body, #root {
   height: 100%;
 }
 
+:root {
+  --ink: #15151a;
+  --ink-soft: #2a2a32;
+  --paper: #f5f1e8;
+  --paper-2: #efe9dc;
+  --line: #d9d1bc;
+  --line-strong: #1a1a22;
+  --acid: #ff4d6d;
+  --base: #5b3cc4;
+  --neutral: #f0c65a;
+  --hl: #b8f26d;
+  --sky: #8ec5ff;
+  --green: #2bb673;
+  --hand: 'Kalam', 'Caveat', cursive;
+  --hand-title: 'Caveat', cursive;
+  --mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+}
+
 body {
-  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--hand);
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: #ffffff;
-  color: #111111;
-  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  background-image:
+    radial-gradient(rgba(0,0,0,.04) 1px, transparent 1.2px),
+    radial-gradient(rgba(0,0,0,.025) 1px, transparent 1.2px);
+  background-size: 22px 22px, 9px 9px;
+  background-position: 0 0, 4px 4px;
+}
+
+a { text-decoration: none; color: inherit; }
+
+@keyframes agentOrbit {
+  0%   { transform: translate(-50%, -50%) rotate(0deg)   translateX(var(--r)) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg) translateX(var(--r)) rotate(-360deg); }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
 }
