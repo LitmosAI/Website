@@ -197,7 +197,7 @@ export default function App() {
           >
             Team
           </button>
-          <Btn acid style={{ fontSize: 15, padding: '7px 14px' }}>Join waitlist</Btn>
+          <Btn acid style={{ fontSize: 15, padding: '7px 14px' }} onClick={() => navigate('/waitlist')}>Join waitlist</Btn>
         </div>
       </nav>
 
@@ -224,7 +224,7 @@ export default function App() {
             Litmus throws a swarm of persona agents at your system and records exactly how it reacts. It's a <strong>behavioral fuzzer for AI</strong>.
           </p>
           <div style={{ display: 'flex', gap: 12, marginTop: 24, flexWrap: 'wrap' }}>
-            <Btn acid>Join waitlist</Btn>
+            <Btn acid onClick={() => navigate('/waitlist')}>Join waitlist</Btn>
             <Btn ghost onClick={() => navigate('/thesis')}>Read the thesis</Btn>
           </div>
           <div style={{ fontFamily: 'var(--mono)', fontSize: 12, color: '#6b6658', marginTop: 14 }}>
@@ -338,7 +338,7 @@ export default function App() {
             <h2 style={{ fontFamily: 'var(--hand-title)', fontSize: 'clamp(24px,3vw,40px)', fontWeight: 700, lineHeight: 1, margin: '10px 0 16px' }}>
               Point the swarm at your AI.
             </h2>
-            <WaitlistForm />
+            <Btn acid onClick={() => navigate('/waitlist')}>Join the waitlist →</Btn>
             <div style={{ fontFamily: 'var(--mono)', fontSize: 11, color: '#6b6658', marginTop: 10 }}>
               we read every note · usually reply &lt;24h
             </div>
